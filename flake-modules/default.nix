@@ -166,7 +166,7 @@
             })
             (lib.mkIf (config.kernelSU.variant == "next") {
               kernelSU.src = sources.kernelsu-next.src;
-              kernelSU.version = sources.kernelsu-next.version;
+              kernelSU.version = null;
               kernelSU.revision = sources.kernelsu-next-revision-code.version;
               kernelSU.subdirectory = "KernelSU-Next";
             })
