@@ -19,73 +19,86 @@ fetch.github = "KudProject/arm-linux-androideabi-4.9"
 src.git = "https://github.com/KudProject/arm-linux-androideabi-4.9.git"
 
 [kernelsu-next]
-fetch.git = "https://github.com/rifsxd/KernelSU-Next.git"
-src.github = "rifsxd/KernelSU-Next"
+fetch.github = "rifsxd/KernelSU-Next"
+# fetch.branch = "legacy"
+# src.github = "KernelSU-Next/KernelSU-Next"
+src.git = "https://github.com/rifsxd/KernelSU-Next.git"
+src.branch = "legacy"
+
+[linux-poco-f3]
+src.git = "https://github.com/LineageOS/android_kernel_xiaomi_sm8250.git"
+src.branch = "lineage-23.2"
+fetch.git = "https://github.com/LineageOS/android_kernel_xiaomi_sm8250.git"
 
 [kernelsu-next-revision-code]
-fetch.url = "http://example.com"
-fetch.name = "unused"
-src.webpage = "https://api.github.com/repos/rifsxd/KernelSU-Next/releases?per_page=1"
+src.webpage = "https://api.github.com/repos/KernelSU-Next/KernelSU-Next/releases?per_page=1"
 src.regex = "download\\/v[0-9\\._]+\\/KernelSU[^\"]*_([0-9]+)-release\\.apk"
+fetch.url = "https://github.com"
 
-[kernelsu-stable]
-fetch.git = "https://github.com/tiann/KernelSU.git"
-# src.github = "tiann/KernelSU"
-src.manual = "v0.9.5"
+# [kernelsu-stable]
+# fetch.git = "https://github.com/tiann/KernelSU.git"
+# # src.github = "tiann/KernelSU"
+# src.manual = "v0.9.5"
+#
+# [kernelsu-stable-revision-code]
+# fetch.url = "https://example.com"
+# # src.webpage = "https://api.github.com/repos/tiann/KernelSU/releases?per_page=1"
+# # src.regex = "download\\/v[0-9\\._]+\\/KernelSU[^\"]*_([0-9]+)-release\\.apk"
+# src.manual = "11872"
 
-[linux-amazon-karnak]
-fetch.github = "mt8163/android_kernel_amazon_karnak_4.9"
-src.git = "https://github.com/mt8163/android_kernel_amazon_karnak_4.9.git"
-src.branch = "lineage-20.0"
-
-[linux-moto-rtwo-lineageos-21]
-fetch.github = "LineageOS/android_kernel_motorola_sm8550"
-src.git = "https://github.com/LineageOS/android_kernel_motorola_sm8550.git"
-src.branch = "lineage-21"
-
-[linux-moto-rtwo-lineageos-22_1]
-fetch.github = "LineageOS/android_kernel_motorola_sm8550"
-src.git = "https://github.com/LineageOS/android_kernel_motorola_sm8550.git"
-src.branch = "lineage-22.1"
-
-[linux-oneplus-13]
-fetch.github = "OnePlusOSS/android_kernel_common_oneplus_sm8750"
-src.git = "https://github.com/OnePlusOSS/android_kernel_common_oneplus_sm8750.git"
-src.branch = "oneplus/sm8750_v_15.0.0_oneplus_13"
-
-[linux-oneplus-8t-blu-spark]
-fetch.github = "engstk/op8"
-src.git = "https://github.com/engstk/op8.git"
-src.branch = "blu_spark-14-custom"
-
-[oneplus-13-sched-ext]
-fetch.github = "HanKuCha/sched_ext"
-src.git = "https://github.com/HanKuCha/sched_ext.git"
-
-[resukisu]
-fetch.github = "ReSukiSU/ReSukiSU"
-src.git = "https://github.com/ReSukiSU/ReSukiSU.git"
-src.branch = "main"
-
-[sukisu]
-fetch.github = "SukiSU-Ultra/SukiSU-Ultra"
-src.git = "https://github.com/SukiSU-Ultra/SukiSU-Ultra.git"
-src.branch = "builtin"
-
-[sukisu-patch]
-fetch.github = "SukiSU-Ultra/SukiSU_patch"
-src.git = "https://github.com/SukiSU-Ultra/SukiSU_patch.git"
-
-[susfs-android13-5_15]
-fetch.git = "https://gitlab.com/simonpunk/susfs4ksu.git"
-src.git = "https://gitlab.com/simonpunk/susfs4ksu.git"
-src.branch = "gki-android13-5.15"
-
-[susfs-android15-6_6]
-fetch.git = "https://gitlab.com/simonpunk/susfs4ksu.git"
-src.git = "https://gitlab.com/simonpunk/susfs4ksu.git"
-src.branch = "gki-android15-6.6"
-
-[wildplus-kernel-patches]
-fetch.github = "WildPlusKernel/kernel_patches"
-src.git = "https://github.com/WildPlusKernel/kernel_patches.git"
+# [linux-amazon-karnak]
+# fetch.github = "mt8163/android_kernel_amazon_karnak_4.9"
+# src.git = "https://github.com/mt8163/android_kernel_amazon_karnak_4.9.git"
+# src.branch = "lineage-20.0"
+# 
+# [linux-moto-rtwo-lineageos-21]
+# fetch.github = "LineageOS/android_kernel_motorola_sm8550"
+# src.git = "https://github.com/LineageOS/android_kernel_motorola_sm8550.git"
+# src.branch = "lineage-21"
+# 
+# [linux-moto-rtwo-lineageos-22_1]
+# fetch.github = "LineageOS/android_kernel_motorola_sm8550"
+# src.git = "https://github.com/LineageOS/android_kernel_motorola_sm8550.git"
+# src.branch = "lineage-22.1"
+# 
+# [linux-oneplus-13]
+# fetch.github = "OnePlusOSS/android_kernel_common_oneplus_sm8750"
+# src.git = "https://github.com/OnePlusOSS/android_kernel_common_oneplus_sm8750.git"
+# src.branch = "oneplus/sm8750_v_15.0.0_oneplus_13"
+# 
+# [linux-oneplus-8t-blu-spark]
+# fetch.github = "engstk/op8"
+# src.git = "https://github.com/engstk/op8.git"
+# src.branch = "blu_spark-14-custom"
+# 
+# [oneplus-13-sched-ext]
+# fetch.github = "HanKuCha/sched_ext"
+# src.git = "https://github.com/HanKuCha/sched_ext.git"
+# 
+# [resukisu]
+# fetch.github = "ReSukiSU/ReSukiSU"
+# src.git = "https://github.com/ReSukiSU/ReSukiSU.git"
+# src.branch = "main"
+# 
+# [sukisu]
+# fetch.github = "SukiSU-Ultra/SukiSU-Ultra"
+# src.git = "https://github.com/SukiSU-Ultra/SukiSU-Ultra.git"
+# src.branch = "builtin"
+# 
+# [sukisu-patch]
+# fetch.github = "SukiSU-Ultra/SukiSU_patch"
+# src.git = "https://github.com/SukiSU-Ultra/SukiSU_patch.git"
+# 
+# [susfs-android13-5_15]
+# fetch.git = "https://gitlab.com/simonpunk/susfs4ksu.git"
+# src.git = "https://gitlab.com/simonpunk/susfs4ksu.git"
+# src.branch = "gki-android13-5.15"
+# 
+# [susfs-android15-6_6]
+# fetch.git = "https://gitlab.com/simonpunk/susfs4ksu.git"
+# src.git = "https://gitlab.com/simonpunk/susfs4ksu.git"
+# src.branch = "gki-android15-6.6"
+# 
+# [wildplus-kernel-patches]
+# fetch.github = "WildPlusKernel/kernel_patches"
+# src.git = "https://github.com/WildPlusKernel/kernel_patches.git"
