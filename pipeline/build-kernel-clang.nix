@@ -1,26 +1,6 @@
 {
   pkgs,
   lib,
-  bc,
-  bison,
-  coreutils,
-  cpio,
-  elfutils,
-  flex,
-  gmp,
-  kmod,
-  libmpc,
-  mpfr,
-  nettools,
-  openssl,
-  pahole,
-  perl,
-  python3,
-  rsync,
-  ubootTools,
-  which,
-  zlib,
-  zstd,
   # User args
   clangVersion,
   src,
@@ -31,17 +11,28 @@
   bbg,
   makeFlags,
   additionalKernelConfig ? "",
+  stdenv,
   ...
 }:
 let
+  clang-r547379 = pkgs.callPackage ../pkgs/android-clang-r547379.nix { };
   finalMakeFlags = [
     "ARCH=${arch}"
-    "CC=clang"
     "O=$out"
-    "LD=ld.lld"
     "LLVM=1"
     "LLVM_IAS=1"
-    "CLANG_TRIPLE=aarch64-linux-gnu-"
+    "CC=${clang-r547379}/bin/clang"
+    "LD=${clang-r547379}/bin/ld.lld"
+    "AR=${clang-r547379}/bin/llvm-ar"
+    "NM=${clang-r547379}/bin/llvm-nm"
+    "OBJCOPY=${clang-r547379}/bin/llvm-objcopy"
+    "OBJDUMP=${clang-r547379}/bin/llvm-objdump"
+    "STRIP=${clang-r547379}/bin/llvm-strip"
+    "HOSTCC=${pkgs.stdenv.cc}/bin/cc"
+    "HOSTCXX=${pkgs.stdenv.cc}/bin/c++"
+    "HOSTLD=${pkgs.stdenv.cc}/bin/ld"
+
+    "CROSS_COMPILE=aarch64-linux-gnu-"
   ]
   ++ makeFlags;
 
@@ -58,37 +49,22 @@ let
       finalMakeFlags
       ;
   };
-
-  usedLLVMPackages = pkgs."llvmPackages_${builtins.toString clangVersion}";
 in
-usedLLVMPackages.stdenv.mkDerivation {
+stdenv.mkDerivation {
   name = "clang-kernel-${builtins.toString clangVersion}";
   inherit src;
 
-  nativeBuildInputs = [
-    bc
+  nativeBuildInputs = with pkgs; [
     bc
     bison
-    coreutils
-    cpio
-    elfutils
     flex
-    gmp
-    kmod
-    libmpc
-    mpfr
-    nettools
     openssl
-    pahole
     perl
     python3
-    rsync
-    ubootTools
-    which
     zlib
-    zstd
-
-    usedLLVMPackages.bintools
+    clang
+    xz
+    cpio
   ];
 
   env.NIX_CC_WRAPPER_SUPPRESS_TARGET_WARNING = "1";
@@ -106,7 +82,11 @@ usedLLVMPackages.stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    make -j$(nproc) ${builtins.concatStringsSep " " finalMakeFlags}
+    make -j$(nproc) \
+      HOSTCC=${pkgs.stdenv.cc}/bin/cc \
+      HOSTCXX=${pkgs.stdenv.cc}/bin/c++ \
+      HOSTLD=${pkgs.stdenv.cc}/bin/ld \
+      ${builtins.concatStringsSep " " finalMakeFlags}
 
     runHook postInstall
   '';
