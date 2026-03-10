@@ -1,0 +1,149 @@
+diff --git c/fs/exec.c i/fs/exec.c
+index eef84ebcac53..fbc3691cb7c6 100644
+--- c/fs/exec.c
++++ i/fs/exec.c
+@@ -1903,6 +1903,7 @@ static int do_execveat_common(int fd, struct filename *filename,
+ 	return __do_execve_file(fd, filename, argv, envp, flags, NULL);
+ }
+ 
++
+ int do_execve_file(struct file *file, void *__argv, void *__envp)
+ {
+ 	struct user_arg_ptr argv = { .ptr.native = __argv };
+@@ -1911,12 +1912,20 @@ int do_execve_file(struct file *file, void *__argv, void *__envp)
+ 	return __do_execve_file(AT_FDCWD, NULL, argv, envp, 0, file);
+ }
+ 
++#ifdef CONFIG_KSU
++__attribute__((hot))
++extern int ksu_handle_execveat(int *fd, struct filename **filename_ptr, void *argv, void *envp, int *flags);
++#endif
++
+ int do_execve(struct filename *filename,
+ 	const char __user *const __user *__argv,
+ 	const char __user *const __user *__envp)
+ {
+ 	struct user_arg_ptr argv = { .ptr.native = __argv };
+ 	struct user_arg_ptr envp = { .ptr.native = __envp };
++  #ifdef CONFIG_KSU
++	  ksu_handle_execveat((int *)AT_FDCWD, &filename, &argv, &envp, 0);
++  #endif
+ 	return do_execveat_common(AT_FDCWD, filename, argv, envp, 0);
+ }
+ 
+@@ -1944,6 +1953,9 @@ static int compat_do_execve(struct filename *filename,
+ 		.is_compat = true,
+ 		.ptr.compat = __envp,
+ 	};
++  #ifdef CONFIG_KSU // 32-bit ksud and 32-on-64 support
++    ksu_handle_execveat((int *)AT_FDCWD, &filename, &argv, &envp, 0);
++  #endif
+ 	return do_execveat_common(AT_FDCWD, filename, argv, envp, 0);
+ }
+ 
+diff --git c/fs/open.c i/fs/open.c
+index 13d70db567e0..99f45a251492 100644
+--- c/fs/open.c
++++ i/fs/open.c
+@@ -451,8 +451,17 @@ long do_faccessat(int dfd, const char __user *filename, int mode)
+ 	return res;
+ }
+ 
++#ifdef CONFIG_KSU
++__attribute__((hot)) 
++extern int ksu_handle_faccessat(int *dfd, const char __user **filename_user,
++				int *mode, int *flags);
++#endif
++
+ SYSCALL_DEFINE3(faccessat, int, dfd, const char __user *, filename, int, mode)
+ {
++  #ifdef CONFIG_KSU
++    ksu_handle_faccessat(&dfd, &filename, &mode, NULL);
++  #endif
+ 	return do_faccessat(dfd, filename, mode);
+ }
+ 
+diff --git c/fs/stat.c i/fs/stat.c
+index 376543199b5a..7a175d9456b4 100644
+--- c/fs/stat.c
++++ i/fs/stat.c
+@@ -353,6 +353,13 @@ SYSCALL_DEFINE2(newlstat, const char __user *, filename,
+ 	return cp_new_stat(&stat, statbuf);
+ }
+ 
++#ifdef CONFIG_KSU
++__attribute__((hot)) 
++extern int ksu_handle_stat(int *dfd, const char __user **filename_user,
++				int *flags);
++#endif
++
++
+ #if !defined(__ARCH_WANT_STAT64) || defined(__ARCH_WANT_SYS_NEWFSTATAT)
+ SYSCALL_DEFINE4(newfstatat, int, dfd, const char __user *, filename,
+ 		struct stat __user *, statbuf, int, flag)
+@@ -360,6 +367,10 @@ SYSCALL_DEFINE4(newfstatat, int, dfd, const char __user *, filename,
+ 	struct kstat stat;
+ 	int error;
+ 
++  #ifdef CONFIG_KSU
++    ksu_handle_stat(&dfd, &filename, &flag);
++  #endif
++
+ 	error = vfs_fstatat(dfd, filename, &stat, flag);
+ 	if (error)
+ 		return error;
+@@ -367,6 +378,7 @@ SYSCALL_DEFINE4(newfstatat, int, dfd, const char __user *, filename,
+ }
+ #endif
+ 
++
+ SYSCALL_DEFINE2(newfstat, unsigned int, fd, struct stat __user *, statbuf)
+ {
+ 	struct kstat stat;
+@@ -375,6 +387,7 @@ SYSCALL_DEFINE2(newfstat, unsigned int, fd, struct stat __user *, statbuf)
+ 	if (!error)
+ 		error = cp_new_stat(&stat, statbuf);
+ 
++
+ 	return error;
+ }
+ 
+@@ -510,6 +523,10 @@ SYSCALL_DEFINE4(fstatat64, int, dfd, const char __user *, filename,
+ 	struct kstat stat;
+ 	int error;
+ 
++  #ifdef CONFIG_KSU // 32-bit su
++    ksu_handle_stat(&dfd, &filename, &flag); 
++  #endif
++
+ 	error = vfs_fstatat(dfd, filename, &stat, flag);
+ 	if (error)
+ 		return error;
+diff --git c/kernel/reboot.c i/kernel/reboot.c
+index 19f89c07460a..d525b5671df3 100644
+--- c/kernel/reboot.c
++++ i/kernel/reboot.c
+@@ -305,6 +305,12 @@ DEFINE_MUTEX(system_transition_mutex);
+  *
+  * reboot doesn't sync: do that yourself before calling this.
+  */
++
++#ifdef CONFIG_KSU
++extern int ksu_handle_sys_reboot(int magic1, int magic2, unsigned int cmd, void __user **arg);
++#endif
++
++
+ SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
+ 		void __user *, arg)
+ {
+@@ -312,6 +318,10 @@ SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
+ 	char buffer[256];
+ 	int ret = 0;
+ 
++  #ifdef CONFIG_KSU 
++    ksu_handle_sys_reboot(magic1, magic2, cmd, &arg);
++  #endif
++
+ 	/* We only trust the superuser with rebooting the system. */
+ 	if (!ns_capable(pid_ns->user_ns, CAP_SYS_BOOT))
+ 		return -EPERM;

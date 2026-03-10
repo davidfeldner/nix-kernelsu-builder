@@ -6,6 +6,31 @@ _: {
     in
     {
       kernelsu = {
+        poco = {
+          anyKernelVariant = "osm0sis";
+          clangVersion = "latest";
+          arch = "arm64";
+
+          kernelSU.enable = true;
+          kernelSU.variant = "next";
+
+          kernelDefconfigs = [
+            "vendor/kona-perf_defconfig"
+            "vendor/xiaomi/sm8250-common.config"
+            "vendor/xiaomi/alioth.config"
+          ];
+          kernelMakeFlags = [
+            "KCFLAGS=\"-w\""
+            "KCPPFLAGS=\"-w\""
+          ];
+          kernelImageName = "Image";
+
+          kernelPatches = [
+            ./resources/poco-f3-4.19-kernel.patch
+          ];
+          kernelSrc = sources.linux-poco-f3.src;
+        };
+
         amazon-fire-hd-karnak = {
           anyKernelVariant = "osm0sis";
           kernelSU.enable = false;
