@@ -22,7 +22,7 @@
     },
     "anykernel-osm0sis": {
         "cargoLock": null,
-        "date": "2026-02-25",
+        "date": "2026-07-04",
         "extract": null,
         "name": "anykernel-osm0sis",
         "passthru": null,
@@ -34,16 +34,16 @@
             "name": null,
             "owner": "osm0sis",
             "repo": "AnyKernel3",
-            "rev": "dca9dc370838d919d56c1f59ec78b27a14a72c68",
-            "sha256": "sha256-J/8RR7xh1fCZDiOSscm1cDWPBU5yFkXLjOHwZxG47Ow=",
+            "rev": "1c9a500dd4aa8081952523126e97eb155aed941b",
+            "sha256": "sha256-lADQ+Fyo5kX+At2O5xnBOs8R9XIctQS2GlLlT/bfWew=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "dca9dc370838d919d56c1f59ec78b27a14a72c68"
+        "version": "1c9a500dd4aa8081952523126e97eb155aed941b"
     },
     "baseband-guard": {
         "cargoLock": null,
-        "date": "2026-02-07",
+        "date": "2026-07-26",
         "extract": null,
         "name": "baseband-guard",
         "passthru": null,
@@ -55,12 +55,12 @@
             "name": null,
             "owner": "vc-teahouse",
             "repo": "Baseband-guard",
-            "rev": "886bc0c86be197a1f4d44b8edf895b549bc0e908",
-            "sha256": "sha256-KrS0idcAHbciUPn8CQhlWQ4sYIyYxqzMcSGX+FYpFdg=",
+            "rev": "a54e0dc6cf0aff4dd87fec49644a02d2eb612905",
+            "sha256": "sha256-ro1Kf3O70KDUfKHm7DnohdhtwXbqU2z9Y1QXNFSJDKo=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "886bc0c86be197a1f4d44b8edf895b549bc0e908"
+        "version": "a54e0dc6cf0aff4dd87fec49644a02d2eb612905"
     },
     "gcc-aarch64-linux-android": {
         "cargoLock": null,
@@ -106,7 +106,7 @@
     },
     "kernelsu-next": {
         "cargoLock": null,
-        "date": "2026-03-04",
+        "date": "2026-07-20",
         "extract": null,
         "name": "kernelsu-next",
         "passthru": null,
@@ -118,12 +118,12 @@
             "name": null,
             "owner": "rifsxd",
             "repo": "KernelSU-Next",
-            "rev": "d8fa0fc817b332260a95d79a7a87d478f239e86f",
-            "sha256": "sha256-SMxYxZN/31PnRN+lt369xXQisHL5joyjEDWnslRZ478=",
+            "rev": "53791c92bff13d62338f29cc9da035a37652ca91",
+            "sha256": "sha256-qFTJIzjuwTRlEqDRu7Ta9g5Gi4IsG6SIewEoM6Va1Vc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "d8fa0fc817b332260a95d79a7a87d478f239e86f"
+        "version": "53791c92bff13d62338f29cc9da035a37652ca91"
     },
     "kernelsu-next-revision-code": {
         "cargoLock": null,
@@ -138,11 +138,11 @@
             "type": "url",
             "url": "https://github.com"
         },
-        "version": "33024"
+        "version": "33214"
     },
     "linux-poco-f3": {
         "cargoLock": null,
-        "date": "2026-02-23",
+        "date": "2026-07-13",
         "extract": null,
         "name": "linux-poco-f3",
         "passthru": null,
@@ -152,12 +152,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a5b3099017ae581aae8bf597b2f9c8c765026af1",
-            "sha256": "sha256-R8t014p1F9pouSXD21Tc1d9g1wnA4HYCRTJf+cZBcfA=",
+            "rev": "71b13e62f057a649b77fe4062feb73ee72ad609c",
+            "sha256": "sha256-OClxNtfjZU2e8VZt+98pEuY31G9hKP67xqpPatHFMmc=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/LineageOS/android_kernel_xiaomi_sm8250.git"
         },
-        "version": "a5b3099017ae581aae8bf597b2f9c8c765026af1"
+        "version": "71b13e62f057a649b77fe4062feb73ee72ad609c"
     }
 }

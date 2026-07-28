@@ -20,27 +20,27 @@
   };
   anykernel-osm0sis = {
     pname = "anykernel-osm0sis";
-    version = "dca9dc370838d919d56c1f59ec78b27a14a72c68";
+    version = "1c9a500dd4aa8081952523126e97eb155aed941b";
     src = fetchFromGitHub {
       owner = "osm0sis";
       repo = "AnyKernel3";
-      rev = "dca9dc370838d919d56c1f59ec78b27a14a72c68";
+      rev = "1c9a500dd4aa8081952523126e97eb155aed941b";
       fetchSubmodules = false;
-      sha256 = "sha256-J/8RR7xh1fCZDiOSscm1cDWPBU5yFkXLjOHwZxG47Ow=";
+      sha256 = "sha256-lADQ+Fyo5kX+At2O5xnBOs8R9XIctQS2GlLlT/bfWew=";
     };
-    date = "2026-02-25";
+    date = "2026-07-04";
   };
   baseband-guard = {
     pname = "baseband-guard";
-    version = "886bc0c86be197a1f4d44b8edf895b549bc0e908";
+    version = "a54e0dc6cf0aff4dd87fec49644a02d2eb612905";
     src = fetchFromGitHub {
       owner = "vc-teahouse";
       repo = "Baseband-guard";
-      rev = "886bc0c86be197a1f4d44b8edf895b549bc0e908";
+      rev = "a54e0dc6cf0aff4dd87fec49644a02d2eb612905";
       fetchSubmodules = false;
-      sha256 = "sha256-KrS0idcAHbciUPn8CQhlWQ4sYIyYxqzMcSGX+FYpFdg=";
+      sha256 = "sha256-ro1Kf3O70KDUfKHm7DnohdhtwXbqU2z9Y1QXNFSJDKo=";
     };
-    date = "2026-02-07";
+    date = "2026-07-26";
   };
   gcc-aarch64-linux-android = {
     pname = "gcc-aarch64-linux-android";
@@ -68,19 +68,19 @@
   };
   kernelsu-next = {
     pname = "kernelsu-next";
-    version = "d8fa0fc817b332260a95d79a7a87d478f239e86f";
+    version = "53791c92bff13d62338f29cc9da035a37652ca91";
     src = fetchFromGitHub {
       owner = "rifsxd";
       repo = "KernelSU-Next";
-      rev = "d8fa0fc817b332260a95d79a7a87d478f239e86f";
+      rev = "53791c92bff13d62338f29cc9da035a37652ca91";
       fetchSubmodules = false;
-      sha256 = "sha256-SMxYxZN/31PnRN+lt369xXQisHL5joyjEDWnslRZ478=";
+      sha256 = "sha256-qFTJIzjuwTRlEqDRu7Ta9g5Gi4IsG6SIewEoM6Va1Vc=";
     };
-    date = "2026-03-04";
+    date = "2026-07-20";
   };
   kernelsu-next-revision-code = {
     pname = "kernelsu-next-revision-code";
-    version = "33024";
+    version = "33214";
     src = fetchurl {
       url = "https://github.com";
       sha256 = "sha256-9IJNI0+1AUPHjKtPRLFJVnb82MBwdp/lO3Kg6ysJilI=";
@@ -88,16 +88,16 @@
   };
   linux-poco-f3 = {
     pname = "linux-poco-f3";
-    version = "a5b3099017ae581aae8bf597b2f9c8c765026af1";
+    version = "71b13e62f057a649b77fe4062feb73ee72ad609c";
     src = fetchgit {
       url = "https://github.com/LineageOS/android_kernel_xiaomi_sm8250.git";
-      rev = "a5b3099017ae581aae8bf597b2f9c8c765026af1";
+      rev = "71b13e62f057a649b77fe4062feb73ee72ad609c";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-R8t014p1F9pouSXD21Tc1d9g1wnA4HYCRTJf+cZBcfA=";
+      sha256 = "sha256-OClxNtfjZU2e8VZt+98pEuY31G9hKP67xqpPatHFMmc=";
     };
-    date = "2026-02-23";
+    date = "2026-07-13";
   };
 }
