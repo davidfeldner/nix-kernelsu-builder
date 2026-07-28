@@ -21,8 +21,13 @@ stdenv.mkDerivation {
 
   postPatch = lib.optionalString (variant == "osm0sis") ''
     substituteInPlace anykernel.sh \
-      --replace-fail "do.devicecheck=1" "do.devicecheck=0" \
-      --replace-fail "BLOCK=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;" "BLOCK=auto;"
+      --replace-fail "kernel.string=ExampleKernel by osm0sis @ xda-developers" "kernel.string=Very Cool Lineage Kernel" \
+      --replace-fail "IS_SLOT_DEVICE=0" "IS_SLOT_DEVICE=1" \
+      --replace-fail "device.name1=maguro" "device.name1=alioth" \
+      --replace-fail "device.name2=toro" "device.name2=aliothin" \
+      --replace-fail "device.name3=toroplus" "device.name3=" \
+      --replace-fail "device.name4=tuna" "device.name4=" \
+      --replace-fail "BLOCK=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;" "BLOCK=/dev/block/bootdevice/by-name/boot;"
   '';
 
   buildPhase = ''
