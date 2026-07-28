@@ -26,7 +26,7 @@ _: {
           kernelImageName = "Image";
 
           kernelPatches = [
-            ./resources/poco-f3-4.19-kernel.patch
+            ./resources/poco_ksun.patch
           ];
           kernelSrc = sources.linux-poco-f3.src;
         };
