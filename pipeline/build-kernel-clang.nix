@@ -54,18 +54,21 @@ stdenv.mkDerivation {
   name = "clang-kernel-${builtins.toString clangVersion}";
   inherit src;
 
-  nativeBuildInputs = with pkgs; [
-    bc
-    bison
-    flex
-    openssl
-    perl
-    python3
-    zlib
-    clang
-    xz
-    cpio
-  ];
+  nativeBuildInputs =
+    with pkgs;
+    [
+      bc
+      bison
+      flex
+      openssl
+      perl
+      python3
+      zlib
+      xz
+      cpio
+      breakpointHook
+    ]
+    ++ [ clang-r547379 ];
 
   env.NIX_CC_WRAPPER_SUPPRESS_TARGET_WARNING = "1";
 
