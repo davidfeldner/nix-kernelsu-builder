@@ -4,7 +4,7 @@ pkgs.stdenv.mkDerivation {
   name = "clang-r547379";
   src = pkgs.fetchurl {
     url = "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r547379.tar.gz";
-    sha256 = "sha256-I+AbYWGku69YAVotDLg7/JG9RZ4vTqDctz3Y+4cTzqE=";
+    sha256 = "sha256-swyNEsYSDhnikrLHnt9ULwxjriSKpVpxJStWTlMDTIo=";
   };
   nativeBuildInputs = [ pkgs.autoPatchelfHook ];
   buildInputs = [
