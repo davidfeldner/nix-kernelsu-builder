@@ -1,6 +1,6 @@
-[anykernel-kernelsu]
-fetch.github = "Kernel-SU/AnyKernel3"
-src.git = "https://github.com/Kernel-SU/AnyKernel3.git"
+# [anykernel-kernelsu]
+# fetch.github = "Kernel-SU/AnyKernel3"
+# src.git = "https://github.com/Kernel-SU/AnyKernel3.git"
 
 [anykernel-osm0sis]
 fetch.github = "osm0sis/AnyKernel3"
