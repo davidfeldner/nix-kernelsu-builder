@@ -6,29 +6,17 @@
   dockerTools,
 }:
 {
-  anykernel-kernelsu = {
-    pname = "anykernel-kernelsu";
-    version = "80e0cc9e736572ad16c7dc539ba9b6e40749f8e7";
-    src = fetchFromGitHub {
-      owner = "Kernel-SU";
-      repo = "AnyKernel3";
-      rev = "80e0cc9e736572ad16c7dc539ba9b6e40749f8e7";
-      fetchSubmodules = false;
-      sha256 = "sha256-8zVOkoMXkKQ+SCBg7jYn2H+RP7bb9x8MAOy/8d/P6Cc=";
-    };
-    date = "2025-11-07";
-  };
   anykernel-osm0sis = {
     pname = "anykernel-osm0sis";
-    version = "1c9a500dd4aa8081952523126e97eb155aed941b";
+    version = "020dfeccf9d7e962a48400fc94d3e451df92eead";
     src = fetchFromGitHub {
       owner = "osm0sis";
       repo = "AnyKernel3";
-      rev = "1c9a500dd4aa8081952523126e97eb155aed941b";
+      rev = "020dfeccf9d7e962a48400fc94d3e451df92eead";
       fetchSubmodules = false;
-      sha256 = "sha256-lADQ+Fyo5kX+At2O5xnBOs8R9XIctQS2GlLlT/bfWew=";
+      sha256 = "sha256-OrqaVwNvBXTcXtcS1nLJ78Hw3X88Q+2chjCPtdTdgmM=";
     };
-    date = "2026-07-04";
+    date = "2026-09-04";
   };
   baseband-guard = {
     pname = "baseband-guard";
@@ -68,19 +56,19 @@
   };
   kernelsu-next = {
     pname = "kernelsu-next";
-    version = "53791c92bff13d62338f29cc9da035a37652ca91";
+    version = "194a4d0531bba5810a7a0d1014acbbf34d9ae284";
     src = fetchFromGitHub {
       owner = "rifsxd";
       repo = "KernelSU-Next";
-      rev = "53791c92bff13d62338f29cc9da035a37652ca91";
+      rev = "194a4d0531bba5810a7a0d1014acbbf34d9ae284";
       fetchSubmodules = false;
-      sha256 = "sha256-qFTJIzjuwTRlEqDRu7Ta9g5Gi4IsG6SIewEoM6Va1Vc=";
+      sha256 = "sha256-GiUbAxb82sfSzdzcLXC6S1Xm54Oq0KuG0y4U3sKOs9M=";
     };
-    date = "2026-07-20";
+    date = "2026-09-24";
   };
   kernelsu-next-revision-code = {
     pname = "kernelsu-next-revision-code";
-    version = "33214";
+    version = "33294";
     src = fetchurl {
       url = "https://github.com";
       sha256 = "sha256-9IJNI0+1AUPHjKtPRLFJVnb82MBwdp/lO3Kg6ysJilI=";

@@ -1,28 +1,7 @@
 {
-    "anykernel-kernelsu": {
-        "cargoLock": null,
-        "date": "2025-11-07",
-        "extract": null,
-        "name": "anykernel-kernelsu",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Kernel-SU",
-            "repo": "AnyKernel3",
-            "rev": "80e0cc9e736572ad16c7dc539ba9b6e40749f8e7",
-            "sha256": "sha256-8zVOkoMXkKQ+SCBg7jYn2H+RP7bb9x8MAOy/8d/P6Cc=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "80e0cc9e736572ad16c7dc539ba9b6e40749f8e7"
-    },
     "anykernel-osm0sis": {
         "cargoLock": null,
-        "date": "2026-07-04",
+        "date": "2026-09-04",
         "extract": null,
         "name": "anykernel-osm0sis",
         "passthru": null,
@@ -34,12 +13,12 @@
             "name": null,
             "owner": "osm0sis",
             "repo": "AnyKernel3",
-            "rev": "1c9a500dd4aa8081952523126e97eb155aed941b",
-            "sha256": "sha256-lADQ+Fyo5kX+At2O5xnBOs8R9XIctQS2GlLlT/bfWew=",
+            "rev": "020dfeccf9d7e962a48400fc94d3e451df92eead",
+            "sha256": "sha256-OrqaVwNvBXTcXtcS1nLJ78Hw3X88Q+2chjCPtdTdgmM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "1c9a500dd4aa8081952523126e97eb155aed941b"
+        "version": "020dfeccf9d7e962a48400fc94d3e451df92eead"
     },
     "baseband-guard": {
         "cargoLock": null,
@@ -106,7 +85,7 @@
     },
     "kernelsu-next": {
         "cargoLock": null,
-        "date": "2026-07-20",
+        "date": "2026-09-24",
         "extract": null,
         "name": "kernelsu-next",
         "passthru": null,
@@ -118,12 +97,12 @@
             "name": null,
             "owner": "rifsxd",
             "repo": "KernelSU-Next",
-            "rev": "53791c92bff13d62338f29cc9da035a37652ca91",
-            "sha256": "sha256-qFTJIzjuwTRlEqDRu7Ta9g5Gi4IsG6SIewEoM6Va1Vc=",
+            "rev": "194a4d0531bba5810a7a0d1014acbbf34d9ae284",
+            "sha256": "sha256-GiUbAxb82sfSzdzcLXC6S1Xm54Oq0KuG0y4U3sKOs9M=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "53791c92bff13d62338f29cc9da035a37652ca91"
+        "version": "194a4d0531bba5810a7a0d1014acbbf34d9ae284"
     },
     "kernelsu-next-revision-code": {
         "cargoLock": null,
@@ -138,7 +117,7 @@
             "type": "url",
             "url": "https://github.com"
         },
-        "version": "33214"
+        "version": "33294"
     },
     "linux-poco-f3": {
         "cargoLock": null,
